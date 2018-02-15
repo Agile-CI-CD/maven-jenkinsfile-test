@@ -28,13 +28,13 @@ pipeline{
             parallel{
                 stage('Deploy to staging'){
                     steps{
-                        sh "scp -i /var/lib/jenkins/Census-Prep.pem -o StrictHostKeyChecking=No '**/FullAutomation1/webapp/target/webapp.war' ec2-user@${params.tomcat_staging}:/opt/tomcat-staging/webapps"
+                        sh "scp -i /var/lib/jenkins/Census-Prep.pem -o StrictHostKeyChecking=No /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat_staging}:/opt/tomcat-staging/webapps"
                     }
                 }
 
                 stage('Deploy to production'){
                     steps{
-                        sh "scp -i /var/lib/jenkins/Census-Prep.pem -o StrictHostKeyChecking=No '**/FullAutomation1/webapp/target/webapp.war' ec2-user@${params.tomcat-prod}:/opt/tomcat-prod/webapps"
+                        sh "scp -i /var/lib/jenkins/Census-Prep.pem -o StrictHostKeyChecking=No /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat-prod}:/opt/tomcat-prod/webapps"
                     }
                 }
             }
