@@ -30,13 +30,13 @@ pipeline{
             parallel{
                 stage('Deploy to staging'){
                     steps{
-                        sh "scp -i Census-Prep.pem /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat_staging}:/opt/tomcat-staging/webapps"
+                        sh "scp -i /home/ec2-user/Census-Prep.pem /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat_staging}:/opt/tomcat-staging/webapps"
                     }
                 }
 
                 stage('Deploy to production'){
                     steps{
-                        sh "scp -i Census-Prep.pem /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat_prod}:/opt/tomcat-prod/webapps"
+                        sh "scp -i /home/ec2-user/Census-Prep.pem /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat_prod}:/opt/tomcat-prod/webapps"
                     }
                 }
             }
