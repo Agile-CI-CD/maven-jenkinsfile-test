@@ -3,8 +3,8 @@ pipeline{
     agent any
 
     parameters {
-        string(name: 'tomcat_staging', defaultValue: '34.207.80.85', description: 'staging' )
-        string(name: 'tomcat_prod', defaultValue: '34.207.80.85', description: 'prod' )
+        string(name: 'tomcat_staging', defaultValue: '54.162.172.67', description: 'staging' )
+        string(name: 'tomcat_prod', defaultValue: '54.162.172.67', description: 'prod' )
     }
 
     
