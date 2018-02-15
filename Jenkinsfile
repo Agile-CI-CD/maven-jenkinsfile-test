@@ -35,7 +35,7 @@ pipeline{
 
                 stage('Deploy to production'){
                     steps{
-                        sh "scp -i /var/lib/jenkins/Census-Prep.pem -o StrictHostKeyChecking=No /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat-prod}:/opt/tomcat-prod/webapps"
+                        sh "scp -i /var/lib/jenkins/Census-Prep.pem -o StrictHostKeyChecking=No /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat_prod}:/opt/tomcat-prod/webapps"
                     }
                 }
             }
