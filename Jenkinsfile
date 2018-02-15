@@ -1,4 +1,4 @@
-pipeline{    
+pipeline{  
     
     agent any
 
@@ -7,6 +7,7 @@ pipeline{
         string(name: 'tomcat_prod', defaultValue: '34.207.80.85', description: 'prod' )
     }
 
+    
     triggers {
         pollSCM('* * * * *')
     }
