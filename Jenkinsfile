@@ -4,8 +4,8 @@ pipeline{
     agent any
 
     parameters {
-        string(name: 'tomcat_staging', defaultValue: '54.162.172.67', description: 'staging' )
-        string(name: 'tomcat_prod', defaultValue: '54.162.172.67', description: 'prod' )
+        string(name: 'tomcat_staging', defaultValue: '54.152.231.43', description: 'staging' )
+        string(name: 'tomcat_prod', defaultValue: '54.152.231.43', description: 'prod' )
     }
 
     
@@ -30,13 +30,13 @@ pipeline{
             parallel{
                 stage('Deploy to staging'){
                     steps{
-                        sh "scp /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat_staging}:/opt/tomcat-staging/webapps"
+                        sh "scp -i Census-Prep.pem /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat_staging}:/opt/tomcat-staging/webapps"
                     }
                 }
 
                 stage('Deploy to production'){
                     steps{
-                        sh "scp /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat_prod}:/opt/tomcat-prod/webapps"
+                        sh "scp -i Census-Prep.pem /var/lib/jenkins/workspace/FullAutomation1/webapp/target/webapp.war ec2-user@${params.tomcat_prod}:/opt/tomcat-prod/webapps"
                     }
                 }
             }
